@@ -18,7 +18,7 @@ public class GoalScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ball")) ;
+        if (other.CompareTag("Ball"))
         Debug.Log("Goal Scored");
     }
 }

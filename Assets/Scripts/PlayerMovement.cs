@@ -6,10 +6,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 
 {
-
-    public float Speed = 1f;
+    public bool kickBall;
+    public Vector3 mouseReleasePosition;
+    public Vector3 mousePressDownPosition;
     Rigidbody rb;
-
+    public float forceMultiplier = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,15 +18,28 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void OnMouseDown()
     {
-        float h = Input.GetAxis("Horizontal") * Speed;
-        float v = Input.GetAxis("Vertical") * Speed;
-        Vector3 movement = new Vector3(h, 0f, h) * Speed;
-        rb.AddForce(h,0,v);
+        mousePressDownPosition = Input.mousePosition;
+       
+    }
 
+    public void OnMouseUp()
+    {
+        mouseReleasePosition = Input.mousePosition;
+        Shoot(mousePressDownPosition - mouseReleasePosition);
+    }
 
+    void Shoot(Vector3 Force)
+    {
+        if (kickBall)
+            return;
+
+        rb.AddForce(Force * forceMultiplier);
+        mousePressDownPosition = Vector3.zero;
+        mouseReleasePosition = Vector3.zero;
+       // kickBall = true;
     }
 
 }
