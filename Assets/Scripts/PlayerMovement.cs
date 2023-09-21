@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -18,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void OnMouseDrag()
+    {
+        
+    }
 
     public void OnMouseDown()
     {
@@ -36,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
         if (kickBall)
             return;
 
+        Force.z = Force.y;
+        Force.y = 0;
+        
         rb.AddForce(Force * forceMultiplier);
         mousePressDownPosition = Vector3.zero;
         mouseReleasePosition = Vector3.zero;
