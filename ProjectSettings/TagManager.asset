@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< Updated upstream
-  tags:
-  - Goal1
-  - Goal2
-  - Ball
-=======
   tags: []
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
