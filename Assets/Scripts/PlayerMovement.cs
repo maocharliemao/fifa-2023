@@ -19,20 +19,32 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnMouseDrag()
+    
+
+    Vector3 MouseWorldPosition() 
     {
-        
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 100))
+        {
+            Debug.DrawLine(ray.origin, hit.point, Color.red, 5f);
+            return hit.point;
+        }
+        return Vector3.zero;
     }
+    
+
 
     public void OnMouseDown()
     {
-        mousePressDownPosition = Input.mousePosition;
+        mousePressDownPosition = MouseWorldPosition();
        
     }
 
     public void OnMouseUp()
     {
-        mouseReleasePosition = Input.mousePosition;
+        mouseReleasePosition = MouseWorldPosition();
         Shoot(mousePressDownPosition - mouseReleasePosition);
     }
 
@@ -40,9 +52,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (kickBall)
             return;
-
-        Force.z = Force.y;
-        Force.y = 0;
         
         rb.AddForce(Force * forceMultiplier);
         mousePressDownPosition = Vector3.zero;
