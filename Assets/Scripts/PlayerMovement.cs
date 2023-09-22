@@ -11,16 +11,15 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 mouseReleasePosition;
     public Vector3 mousePressDownPosition;
     Rigidbody rb;
-    public float forceMultiplier = 3f;
+    public float forceMultiplier = 100f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-
     
-
     Vector3 MouseWorldPosition() 
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -34,20 +33,29 @@ public class PlayerMovement : MonoBehaviour
         return Vector3.zero;
     }
     
-
-
     public void OnMouseDown()
     {
         mousePressDownPosition = MouseWorldPosition();
        
     }
 
-    public void OnMouseUp()
-    {
-        mouseReleasePosition = MouseWorldPosition();
-        Shoot(mousePressDownPosition - mouseReleasePosition);
-    }
+   // public void OnMouseUp()
+   // {
+        //mouseReleasePosition = MouseWorldPosition();
+        //Shoot(mousePressDownPosition - mouseReleasePosition);
+   // }
 
+   public void Update()
+   {
+       if (Input.GetKeyDown("space"))
+       {
+           mouseReleasePosition = MouseWorldPosition();
+           Shoot(mousePressDownPosition - mouseReleasePosition);
+           Debug.Log("space key was pressed");
+           
+       }
+   }
+   
     void Shoot(Vector3 Force)
     {
         if (kickBall)
@@ -58,5 +66,6 @@ public class PlayerMovement : MonoBehaviour
         mouseReleasePosition = Vector3.zero;
        // kickBall = true;
     }
-
+    
 }
+
