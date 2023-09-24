@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Playermovement2 : MonoBehaviour
 {
     public bool kickBall;
     public Vector3 mouseReleasePosition;
@@ -39,10 +37,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void OnMouseUp()
-    {
-        mouseReleasePosition = MouseWorldPosition();
-        Shoot(mousePressDownPosition - mouseReleasePosition);
-    }
+     {
+       mouseReleasePosition = MouseWorldPosition();
+       Shoot(mousePressDownPosition - mouseReleasePosition);
+     }
 
 
     
@@ -59,4 +57,3 @@ public class PlayerMovement : MonoBehaviour
     }
     
 }
-
