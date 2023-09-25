@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BounceOff : MonoBehaviour
 {
-    public float repelForce = 10.0f;
+    public float repelForce = 100.0f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,13 +12,8 @@ public class BounceOff : MonoBehaviour
 
         if (rb != null)
         {
-            // Calculate the direction from the object to the center of the repel area
             Vector3 repelDirection = transform.position - other.transform.position;
-
-            // Normalize the direction vector
             repelDirection.Normalize();
-
-            // Apply repel force to the object
             rb.AddForce(repelDirection * repelForce, ForceMode.Impulse);
         }
     }

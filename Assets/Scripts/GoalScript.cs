@@ -8,6 +8,7 @@ public class GoalScript : MonoBehaviour
 {
 
     public int score = 0;
+    public ManagerGame managerGame;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +19,9 @@ public class GoalScript : MonoBehaviour
         {
             score++;
             ballScript.ResetBallPosition();
+            Debug.Log("goal is scored");
+            managerGame.GoalScored();
+
         }
     }
 }

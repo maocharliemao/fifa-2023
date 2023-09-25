@@ -6,6 +6,7 @@ public class BallScript : MonoBehaviour
 {
     private Rigidbody rb;
     private Vector3 initialPosition;
+ 
 
     private void Start()
     {
@@ -21,3 +22,5 @@ public class BallScript : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
     }
 }
+
+

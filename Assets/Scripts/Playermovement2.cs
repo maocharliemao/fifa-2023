@@ -9,12 +9,12 @@ public class Playermovement2 : MonoBehaviour
     public Vector3 mousePressDownPosition;
     Rigidbody rb;
     public float forceMultiplier = 100f;
-
-
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 initialPosition;
+    
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        initialPosition = transform.position;
     }
     
     Vector3 MouseWorldPosition() 
@@ -41,10 +41,7 @@ public class Playermovement2 : MonoBehaviour
         mouseReleasePosition = MouseWorldPosition();
         Shoot(mousePressDownPosition - mouseReleasePosition);
     }
-
-
     
-   
     void Shoot(Vector3 Force)
     {
         if (kickBall)
@@ -53,7 +50,14 @@ public class Playermovement2 : MonoBehaviour
         rb.AddForce(Force * forceMultiplier);
         mousePressDownPosition = Vector3.zero;
         mouseReleasePosition = Vector3.zero;
-        kickBall = true;
+       // kickBall = true;
+    }
+    
+    public void ResetPlayerPosition()
+    {
+
+        transform.position = initialPosition;
+
     }
     
 }
