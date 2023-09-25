@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BallScript : MonoBehaviour
-
-
 {
-    public GameObject player;
-    public float speed;
-    public Rigidbody ball;
+    private Rigidbody rb;
+    private Vector3 initialPosition;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        ball = GetComponent<Rigidbody>();   
+        rb = GetComponent<Rigidbody>();
+        initialPosition = transform.position;
     }
+    
 
-    // Update is called once per frame
-    void Update()
+    public void ResetBallPosition()
     {
-
+        transform.position = initialPosition;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
-
-
 }

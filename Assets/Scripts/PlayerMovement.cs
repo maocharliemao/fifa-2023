@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(Force * forceMultiplier);
         mousePressDownPosition = Vector3.zero;
         mouseReleasePosition = Vector3.zero;
-        // kickBall = true;
+        kickBall = true;
     }
     
 }

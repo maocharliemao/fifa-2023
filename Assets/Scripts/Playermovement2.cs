@@ -37,10 +37,10 @@ public class Playermovement2 : MonoBehaviour
     }
 
     public void OnMouseUp()
-     {
-       mouseReleasePosition = MouseWorldPosition();
-       Shoot(mousePressDownPosition - mouseReleasePosition);
-     }
+    {
+        mouseReleasePosition = MouseWorldPosition();
+        Shoot(mousePressDownPosition - mouseReleasePosition);
+    }
 
 
     
@@ -53,7 +53,7 @@ public class Playermovement2 : MonoBehaviour
         rb.AddForce(Force * forceMultiplier);
         mousePressDownPosition = Vector3.zero;
         mouseReleasePosition = Vector3.zero;
-        // kickBall = true;
+        kickBall = true;
     }
     
 }
