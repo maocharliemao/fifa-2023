@@ -55,9 +55,7 @@ public class Playermovement2 : MonoBehaviour
     
     public void ResetPlayerPosition()
     {
-
         transform.position = initialPosition;
-
     }
     
 }

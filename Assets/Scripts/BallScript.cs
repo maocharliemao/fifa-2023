@@ -10,7 +10,7 @@ public class BallScript : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+         rb = GetComponent<Rigidbody>();
         initialPosition = transform.position;
     }
     
