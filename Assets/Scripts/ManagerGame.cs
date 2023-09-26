@@ -7,26 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class ManagerGame : MonoBehaviour
 {
-    public int playerScore = 0;
-    public int maxScore = 5;
-
     public BallScript ballScript;
     public Playermovement2[] playersToReset;
     public PlayerMovement[] playersToReset2;
-
-    private void Update()
-    {
-        if (playerScore >= maxScore)
-        {
-            Debug.Log("Game Over - Player Wins!");
-        }
-        
-    }
-
+    
     public void GoalScored()
     {
-        playerScore++;
-        Debug.Log("Goal Scored! Player Score: " + playerScore);
+
+        Debug.Log("Goal Scored!");
         ballScript.ResetBallPosition();
         ResetAllPlayers();
     }
