@@ -10,15 +10,17 @@ public class ManagerGame : MonoBehaviour
     public BallScript ballScript;
     public Playermovement2[] playersToReset;
     public PlayerMovement[] playersToReset2;
+
     
     public void GoalScored()
     {
-
-        Debug.Log("Goal Scored!");
         ballScript.ResetBallPosition();
         ResetAllPlayers();
     }
-
+    
+    
+    
+    
     private void ResetAllPlayers()
     {
         foreach (Playermovement2 player in playersToReset)

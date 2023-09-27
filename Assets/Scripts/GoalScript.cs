@@ -7,6 +7,8 @@ using UnityEngine;
 public class GoalScript : MonoBehaviour
 {
     public ManagerGame managerGame;
+    public PlayerTeams.TeamNames team;
+    public int score = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,10 +17,12 @@ public class GoalScript : MonoBehaviour
         
         if (ballScript != null)
         {
-            ballScript.ResetBallPosition();
-            Debug.Log("goal is scored");
-            managerGame.GoalScored();
-
+            if (ballScript.currentTeam == team);
         }
+
+        score++;
+        ballScript.ResetBallPosition();
+        managerGame.GoalScored();
+        Debug.Log("goal for team" + team + "!" + score);
     }
 }

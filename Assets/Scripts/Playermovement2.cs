@@ -10,6 +10,7 @@ public class Playermovement2 : MonoBehaviour
     Rigidbody rb;
     public float forceMultiplier = 100f;
     private Vector3 initialPosition;
+    public PlayerTeams.TeamNames team;
     
     private void Start()
     {
