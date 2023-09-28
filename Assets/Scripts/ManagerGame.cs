@@ -8,8 +8,7 @@ using UnityEngine.SceneManagement;
 public class ManagerGame : MonoBehaviour
 {
     public BallScript ballScript;
-    public Playermovement2[] playersToReset;
-    public PlayerMovement[] playersToReset2;
+    public PlayerMovement[] playersToReset;
 
     
     public void GoalScored()
@@ -23,15 +22,7 @@ public class ManagerGame : MonoBehaviour
     
     private void ResetAllPlayers()
     {
-        foreach (Playermovement2 player in playersToReset)
-        {
-            if (player != null)
-            {
-                player.ResetPlayerPosition();
-            }
-        }
-
-        foreach (PlayerMovement player in playersToReset2)
+        foreach (PlayerMovement player in playersToReset)
         {
             if (player != null)
             {

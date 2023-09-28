@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1786636559242087701}
   - component: {fileID: 8632965497207757127}
   - component: {fileID: 1769513176226973114}
-  - component: {fileID: 4794306564166052572}
   - component: {fileID: -4367880424580254244}
+  - component: {fileID: 5660548795606695613}
   m_Layer: 0
   m_Name: PlayerBlue
   m_TagString: Blue Player
@@ -137,23 +137,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &4794306564166052572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4431381000092864698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a22ea981f91a39459130e958fbbe62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kickBall: 0
-  mouseReleasePosition: {x: 0, y: 0, z: 0}
-  mousePressDownPosition: {x: 0, y: 0, z: 0}
-  forceMultiplier: 65
-  team: 1
 --- !u!114 &-4367880424580254244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +150,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Team: 1
+--- !u!114 &5660548795606695613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431381000092864698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e09d44af3912743bf8316a4749d817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kickBall: 0
+  mouseReleasePosition: {x: 0, y: 0, z: 0}
+  mousePressDownPosition: {x: 0, y: 0, z: 0}
+  forceMultiplier: 65
+  team: 1

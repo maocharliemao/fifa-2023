@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScoreUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public delegate void SimpleDelegate();
+    
+    public event SimpleDelegate ScoreEvent;
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            gameScore();
+        }
     }
+    
+    public void gameScore()
+    {
+        ScoreEvent?.Invoke();
+    }
+    
 }
