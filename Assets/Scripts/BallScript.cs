@@ -8,10 +8,7 @@ public class BallScript : MonoBehaviour
     private Rigidbody rb;
     private Vector3 initialPosition;
     public PlayerTeams.TeamNames currentTeam;
-
-
- 
-
+    
     private void Start()
     {
          rb = GetComponent<Rigidbody>();
