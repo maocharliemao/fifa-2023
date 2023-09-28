@@ -1,28 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 
 public class GoalScript : MonoBehaviour
 {
-    public ManagerGame managerGame;
-    public PlayerTeams.TeamNames team;
-    public int score = 0;
+    
+    public delegate void SimpleDelegate();
+    
+    public event SimpleDelegate ScoreEvent;
 
-    private void OnTriggerEnter(Collider other)
+    public void Update()
     {
-
-        BallScript ballScript = other.GetComponent<BallScript>();
-        
-        if (ballScript != null)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (ballScript.currentTeam == team);
+            gameScore();
         }
-
-        score++;
-        ballScript.ResetBallPosition();
-        managerGame.GoalScored();
-        Debug.Log("goal for team" + team + "!" + score);
     }
+    
+    public void gameScore()
+    {
+        ScoreEvent?.Invoke();
+        Debug.Log("Game Score");
+    }
+    
+    
 }

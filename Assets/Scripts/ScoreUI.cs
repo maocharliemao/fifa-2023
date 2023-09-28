@@ -6,21 +6,44 @@ using TMPro;
 
 public class ScoreUI : MonoBehaviour
 {
-    public delegate void SimpleDelegate();
-    
-    public event SimpleDelegate ScoreEvent;
 
-    public void Update()
+    public ManagerGame managerGame;
+    public PlayerTeams.TeamNames team;
+    public int score = 0;
+    public TextMeshProUGUI textMeshPro;
+    public GoalScript goalScript;
+    public GameObject otherGameObject;
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        Score();
+    }
+
+    public void OnEnabled()
+    {
+        goalScript.ScoreEvent += Score;
+    }
+    
+
+    public void OnDisabled()
+    {
+        goalScript.ScoreEvent -= Score;
+    }
+    
+    private void Score()
+    {
+        BallScript ballScript = otherGameObject.GetComponent<BallScript>();
+        
+        if (ballScript != null)
         {
-            gameScore();
+            if (ballScript.currentTeam == team);
         }
+        score++;
+        ballScript.ResetBallPosition();
+        managerGame.GoalScored();
+        textMeshPro.text = ("Score" + " " + score);
+        
+   
     }
-    
-    public void gameScore()
-    {
-        ScoreEvent?.Invoke();
-    }
-    
 }
