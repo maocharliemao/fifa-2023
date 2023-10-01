@@ -489,7 +489,7 @@ MonoBehaviour:
   score: 0
   textMeshPro: {fileID: 797560959}
   goalScript: {fileID: 316913129}
-  otherGameObject: {fileID: 883205932}
+  Ball: {fileID: 883205932}
 --- !u!1 &426487509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,6 +1525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Team: 0
+  PlayerID: 0
 --- !u!4 &998205665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 923407857388903500, guid: c72dd237b667abb4393efb902f001585, type: 3}
@@ -2091,7 +2092,7 @@ MonoBehaviour:
   score: 0
   textMeshPro: {fileID: 1910436796}
   goalScript: {fileID: 1539765758}
-  otherGameObject: {fileID: 883205932}
+  Ball: {fileID: 883205932}
 --- !u!1 &1573157719
 GameObject:
   m_ObjectHideFlags: 0
