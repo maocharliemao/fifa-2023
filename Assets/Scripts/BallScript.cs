@@ -15,7 +15,7 @@ public class BallScript : MonoBehaviour
         initialPosition = transform.position;
     }
 
-    public void OnTriggerEnter(Collider other)     // call player when ball touched
+    public void OnTriggerEnter(Collider other)     
     {
         PlayerMovement player = other.GetComponent<PlayerMovement>();
 
@@ -33,12 +33,6 @@ public class BallScript : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
-    
- 
-    
-    // last team to touch the ball scores the goal
-    
-    
     
 }
 

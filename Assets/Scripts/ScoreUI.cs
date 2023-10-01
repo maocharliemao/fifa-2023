@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScoreUI : MonoBehaviour
+public class GoalScore : MonoBehaviour
 {
 
     public ManagerGame managerGame;
@@ -12,7 +12,7 @@ public class ScoreUI : MonoBehaviour
     public int score = 0;
     public TextMeshProUGUI textMeshPro;
     public GoalScript goalScript;
-    public GameObject otherGameObject;
+    public GameObject Ball;
 
 
     private void OnTriggerEnter(Collider other)
@@ -33,7 +33,7 @@ public class ScoreUI : MonoBehaviour
     
     private void Score()
     {
-        BallScript ballScript = otherGameObject.GetComponent<BallScript>();
+        BallScript ballScript = Ball.GetComponent<BallScript>();
         
         if (ballScript != null)
         {
