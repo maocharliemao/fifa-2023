@@ -11,14 +11,12 @@ public class Goal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         AddScore();
-        Debug.Log("Collided");
     }
 
     public void AddScore()
     {
         ScoringEvent?.Invoke();
         //this should call something, maybe the Referee
-        Debug.Log("invoked");
     }
     
 }
