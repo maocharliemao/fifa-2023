@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
+
 
 public class GoalScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    public delegate void SimpleDelegate();
+    public event SimpleDelegate ScoreEvent;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void OnTriggerEnter(Collider other)
+    
+    public void gameScore()
     {
-        if (other.CompareTag("Ball"))
-        Debug.Log("Goal Scored");
+        ScoreEvent?.Invoke();
+
     }
+    
+    
 }

@@ -1,19 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class ManagerGame : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public BallScript ballScript;
+    public PlayerMovement[] playersToReset;
 
-    // Update is called once per frame
-    void Update()
+    
+    public void GoalScored()
     {
-        
+        ballScript.ResetBallPosition();
+        ResetAllPlayers();
+    }
+    
+    
+    
+    
+    private void ResetAllPlayers()
+    {
+        foreach (PlayerMovement player in playersToReset)
+        {
+            if (player != null)
+            {
+                player.ResetPlayerPosition();
+            }
+        }
     }
 }
+
+
+
+
+

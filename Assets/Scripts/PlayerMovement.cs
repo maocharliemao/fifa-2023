@@ -5,22 +5,22 @@ using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-
 {
     public bool kickBall;
     public Vector3 mouseReleasePosition;
     public Vector3 mousePressDownPosition;
     Rigidbody rb;
-    public float forceMultiplier = 3f;
+    public float forceMultiplier = 100f;
+    private Vector3 initialPosition;
+    public PlayerTeams.TeamNames team;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        initialPosition = transform.position;
     }
-
     
-
     Vector3 MouseWorldPosition() 
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -34,8 +34,6 @@ public class PlayerMovement : MonoBehaviour
         return Vector3.zero;
     }
     
-
-
     public void OnMouseDown()
     {
         mousePressDownPosition = MouseWorldPosition();
@@ -47,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         mouseReleasePosition = MouseWorldPosition();
         Shoot(mousePressDownPosition - mouseReleasePosition);
     }
-
+    
     void Shoot(Vector3 Force)
     {
         if (kickBall)
@@ -56,7 +54,13 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(Force * forceMultiplier);
         mousePressDownPosition = Vector3.zero;
         mouseReleasePosition = Vector3.zero;
-       // kickBall = true;
+        //kickBall = true;
+    }
+    public void ResetPlayerPosition()
+    {
+        transform.position = initialPosition;
     }
 
+
 }
+

@@ -1,27 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BallScript : MonoBehaviour
-
-
 {
-    public GameObject player;
-    public float speed;
-    public Rigidbody ball;
-
-
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody rb;
+    private Vector3 initialPosition;
+    public PlayerTeams.TeamNames currentTeam;
+    
+    private void Start()
     {
-        ball = GetComponent<Rigidbody>();   
+         rb = GetComponent<Rigidbody>();
+        initialPosition = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter(Collider other)     
     {
+        PlayerMovement player = other.GetComponent<PlayerMovement>();
 
+        if (player != null)
+        {
+            currentTeam = player.team;
+
+        }
+        
     }
 
-
+    public void ResetBallPosition()
+    {
+        transform.position = initialPosition;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+    
 }
+
+
