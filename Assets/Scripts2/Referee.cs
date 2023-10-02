@@ -15,33 +15,41 @@ public class Referee : MonoBehaviour
 
     public delegate void ScoreChangeEvent(int redScore, int blueScore);
     public event ScoreChangeEvent OnScoreChange;
-
+    
+    public delegate void ResetBall();
+    public event ResetBall BallEvent;
+    
+    public delegate void GameOverEvent(int redScore, int blueScore);
+    public event GameOverEvent OnGameOver;
+    
+    
+    
     private void OnEnable()
     {
         goal.ScoringEvent += AddScoreToRedTeam;
         goal2.ScoringEvent += AddScoreToBlueTeam;
-        ball.BallEvent += BallToReset;
     }
 
     private void OnDisable()
     {
         goal.ScoringEvent -= AddScoreToRedTeam;
         goal2.ScoringEvent -= AddScoreToBlueTeam;
-        ball.BallEvent -= BallToReset;
     }
 
     private void AddScoreToRedTeam()
     {
         redTeamScore++;
-        ball.ResetBallPitch();
         NotifyScoreChange();
+        ResetBallPitch();
+        GameOver();
     }
 
     private void AddScoreToBlueTeam()
     {
         blueTeamScore++;
-        ball.ResetBallPitch();
         NotifyScoreChange();
+        ResetBallPitch();
+        GameOver();
     }
 
     private void NotifyScoreChange()
@@ -49,14 +57,16 @@ public class Referee : MonoBehaviour
         OnScoreChange?.Invoke(redTeamScore, blueTeamScore);
     }
 
-
-    private void BallToReset()
+    public void ResetBallPitch()
     {
-        Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
-        ball.transform.position = ball.InitialPosition;
-        ballRigidbody.velocity = Vector3.zero;
-        ballRigidbody.angularVelocity = Vector3.zero;
+        BallEvent?.Invoke();
     }
+
+    public void GameOver()
+    {
+        OnGameOver?.Invoke(0, 0);
+    }
+
     
     
 // do an event for the ball script and player reset part

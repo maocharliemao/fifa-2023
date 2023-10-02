@@ -23,7 +23,7 @@ public class Reset : MonoBehaviour
     
     public void Update()
     {
-        // Fake death
+        //ummmmmmmmmmmmmmmmmmmmm
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             ResetToInitial();

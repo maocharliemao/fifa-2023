@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementRotation : MonoBehaviour
 {
-    // looked this movement script up because i big noob, also doesnt really matter that much, i care more about the flow of the scripts
+    // do not look at this, not my work, just needed a movement system
     public GameObject[] Players;
     private int PlayerIndex = 0; 
     public float rotationSpeed = 350f;

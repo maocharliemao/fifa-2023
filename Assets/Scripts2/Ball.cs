@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public delegate void ResetBall();
-    public event ResetBall BallEvent;
 
     private Rigidbody rb;
     private Vector3 initialPosition; 
-    public Vector3 InitialPosition { get { return initialPosition; } } // had to look this up
+    public Referee referee;
+
 
 
     private void Start()
@@ -18,9 +17,23 @@ public class Ball : MonoBehaviour
         initialPosition = transform.position;
     }
 
-    public void ResetBallPitch()
+    
+    private void OnEnable()
     {
-        BallEvent?.Invoke();
+        referee.BallEvent += BallToReset;
+    }
+
+    private void OnDisable()
+    {
+        referee.BallEvent -= BallToReset;
+    }
+    
+    public void BallToReset()
+    {
+        transform.position = initialPosition;
+        Rigidbody ballRigidbody = GetComponent<Rigidbody>();
+        ballRigidbody.velocity = Vector3.zero;
+        ballRigidbody.angularVelocity = Vector3.zero;
     }
     
     
