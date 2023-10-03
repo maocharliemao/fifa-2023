@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Score : MonoBehaviour
+public class UI_Score : MonoBehaviour
 {
     public TextMeshProUGUI textMeshPro;
     public Referee referee;
