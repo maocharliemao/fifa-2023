@@ -6,8 +6,8 @@ public class Referee : MonoBehaviour
 {
     // ref getting paid overtime rates
 
-    public int redTeamScore { get; private set; } = 0;
-    public int blueTeamScore { get; private set; } = 0;
+    public int redTeamScore  = 0;
+    public int blueTeamScore  = 0;
     
     public Goal goal;
     public Goal goal2;
@@ -66,10 +66,6 @@ public class Referee : MonoBehaviour
     {
         OnGameOver?.Invoke(0, 0);
     }
-
     
-    
-// do an event for the ball script and player reset part
-// FIND OUT WHY THATS NOT RESETTING
 
 }

@@ -9,8 +9,15 @@ public class Ball : MonoBehaviour
     private Vector3 initialPosition; 
     public Referee referee;
 
+    public float hitForce = 5.0f;
 
+    
+    public void Hit(Vector3 forceDirection)
+    {
+        rb.AddForce(-forceDirection * hitForce, ForceMode.Impulse);
 
+    }
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,11 +37,22 @@ public class Ball : MonoBehaviour
     
     public void BallToReset()
     {
+        float randomX = Random.Range(-1f, 1f);
+        initialPosition.x = randomX;
+
         transform.position = initialPosition;
         Rigidbody ballRigidbody = GetComponent<Rigidbody>();
         ballRigidbody.velocity = Vector3.zero;
         ballRigidbody.angularVelocity = Vector3.zero;
     }
-    
-    
 }
+
+
+
+
+
+
+
+    
+    
+
