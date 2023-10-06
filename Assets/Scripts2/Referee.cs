@@ -64,7 +64,7 @@ public class Referee : MonoBehaviour
 
     public void GameOver()
     {
-        OnGameOver?.Invoke(0, 0);
+        OnGameOver?.Invoke(redTeamScore, blueTeamScore);
     }
     
 

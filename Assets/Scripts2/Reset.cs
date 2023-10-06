@@ -14,16 +14,19 @@ public class Reset : MonoBehaviour
         initialRotation = transform.rotation;
     }
 
+    
+    // ReSharper disable Unity.PerformanceAnalysis
     public void ResetToInitial()
     {
 
         transform.position = initialPosition;
         transform.rotation = initialRotation;
+
     }
     
     public void Update()
     {
-        //ummmmmmmmmmmmmmmmmmmmm
+        
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             ResetToInitial();

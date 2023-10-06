@@ -26,6 +26,7 @@ public class PauseState : MonoBehaviour
     private void OnDisable()
     {
         pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
     
 

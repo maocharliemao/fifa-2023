@@ -10,6 +10,7 @@ public class MenuState : MonoBehaviour
     private void OnEnable()
     {
        menu.SetActive(true);
+       Time.timeScale = 0;
     }
 
 
@@ -21,6 +22,7 @@ public class MenuState : MonoBehaviour
     private void OnDisable()
     {
         menu.SetActive(false);
+        Time.timeScale = 1;
     }
     
     
