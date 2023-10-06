@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Score : MonoBehaviour
+public class UI_Score : MonoBehaviour
 {
     public TextMeshProUGUI textMeshPro;
     public Referee referee;
@@ -18,9 +18,10 @@ public class Score : MonoBehaviour
         referee.OnScoreChange -= DisplayScore;
     }
 
-    private void DisplayScore(int redscore, int bluescore)
+    private void DisplayScore(int redTeamScore, int blueTeamScore)
     {
-        textMeshPro.text = "SCORE\n" + redscore + ":" + bluescore;
+        textMeshPro.text = "SCORE\n" + redTeamScore + ":" + blueTeamScore;
+        Debug.Log("blue "+ redTeamScore + "red " + blueTeamScore);
     }
 
 

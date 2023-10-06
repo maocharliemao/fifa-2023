@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovementRotation : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     // testing out new input system that cam showed us
     public GameObject[] Players;
@@ -18,32 +18,32 @@ public class MovementRotation : MonoBehaviour
 
     void Update()
     {
-        float verticalInput = InputSystem.GetDevice<Keyboard>().dKey.isPressed ? 1f : InputSystem.GetDevice<Keyboard>().aKey.isPressed ? -1f : 0f;
+        float verticalInput = InputSystem.GetDevice<Keyboard>().rightArrowKey.isPressed ? 1f : InputSystem.GetDevice<Keyboard>().leftArrowKey.isPressed ? -1f : 0f;
         float rotationInput = Input.GetAxis("Vertical");
         float rotationAmount = rotationInput * rotationSpeed * Time.deltaTime;
         
         //horizontal movement 
-        if (InputSystem.GetDevice<Keyboard>().wKey.isPressed)
+        if (InputSystem.GetDevice<Keyboard>().upArrowKey.isPressed)
         {
             Players[PlayerIndex].transform.Rotate(Vector3.forward, rotationAmount);
         }
-        if (InputSystem.GetDevice<Keyboard>().sKey.isPressed)
+        if (InputSystem.GetDevice<Keyboard>().downArrowKey.isPressed)
         {
           Players[PlayerIndex].transform.Rotate(Vector3.forward, rotationAmount);
         }
         
         //vertical rotation
-        if (InputSystem.GetDevice<Keyboard>().aKey.isPressed)
+        if (InputSystem.GetDevice<Keyboard>().leftArrowKey.isPressed)
         {
             MoveCurrentObjectOnZ(verticalInput);
         }
-        if (InputSystem.GetDevice<Keyboard>().dKey.isPressed)
+        if (InputSystem.GetDevice<Keyboard>().rightArrowKey.isPressed)
         {
            MoveCurrentObjectOnZ(verticalInput);
         }
         
         //switch players button
-        if (InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame)
+        if (InputSystem.GetDevice<Keyboard>().enterKey.wasPressedThisFrame)
         {
             ToggleObject();
         }
