@@ -10,9 +10,6 @@ public class Ball : MonoBehaviour
     private Vector3 initialPosition; 
     public Referee referee;
     
-
-    public float hitForce = 5.0f;
-
     public void OnCollisionEnter(Collision other)
     {
         IScoreable scoreable = other.transform.GetComponent<IScoreable>();
@@ -21,12 +18,14 @@ public class Ball : MonoBehaviour
             scoreable.Score();
         }
     }
-
-    public void Hit(Vector3 forceDirection)
+    
+    public void Kick(Vector3 kickDirection, float kickForce)
     {
-        rb.AddForce(-forceDirection * hitForce, ForceMode.Impulse);
-
+        Vector3 oppositeDirection = -kickDirection.normalized;
+        rb.velocity = oppositeDirection * kickForce;
+        Debug.Log("Ball is kicked");
     }
+
     
     private void Start()
     {

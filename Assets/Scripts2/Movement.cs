@@ -77,8 +77,9 @@ public class Movement : MonoBehaviour
     {
         if (PlayerIndex >= 0 && PlayerIndex < Players.Length)
         {
-            indicator.transform.SetParent(Players[PlayerIndex].transform);
-            indicator.transform.localPosition = Vector3.zero;
+            Vector3 currentPosition = Players[PlayerIndex].transform.position;
+            Vector3 indicatorPosition = new Vector3(currentPosition.x, currentPosition.y, 8f);
+            indicator.transform.position = indicatorPosition;
             indicator.SetActive(true);
         }
     }
@@ -88,6 +89,10 @@ public class Movement : MonoBehaviour
     {
         MoveIndicatorToCurrentObject();
     }
+    
 
+    
+    
+    
     
 }
