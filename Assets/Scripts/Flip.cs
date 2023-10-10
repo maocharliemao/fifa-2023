@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Flip : MonoBehaviour
 {
-    public float flipForce = 1000f;  // Force to flip the car
-    public float maxAngle = 60f;     // Maximum angle to consider the car as flipped
-    public Transform centerOfMass;   // Center of mass for better physics simulation
+    public float flipForce = 1000f;  
+    public float maxAngle = 60f;     
+    public Transform centerOfMass;   
 
     private Rigidbody rb;
 
@@ -30,7 +30,7 @@ public class Flip : MonoBehaviour
 
     private bool IsCarFlipped()
     {
-        // Cast rays downward to check if the car is flipped
+        
         RaycastHit hit;
         Vector3 down = transform.TransformDirection(Vector3.down);
 
@@ -45,7 +45,7 @@ public class Flip : MonoBehaviour
 
     private void FlipCar()
     {
-        // Apply force to flip the car
+        
         rb.AddForce(Vector3.up * flipForce, ForceMode.Impulse);
     }
 }
