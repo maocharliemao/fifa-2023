@@ -37,7 +37,7 @@ public class GoalScore : MonoBehaviour
         
         if (ballScript != null)
         {
-            if (ballScript.currentTeam == team);
+           if (ballScript.currentTeam == team);
         }
         score++;
         ballScript.ResetBallPosition();

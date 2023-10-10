@@ -5,9 +5,9 @@ using TMPro;
 
 public class UI_Score : MonoBehaviour
 {
-    public TextMeshProUGUI textMeshPro;
+    public TextMeshProUGUI textMeshProred;
     public Referee referee;
-
+    public TextMeshProUGUI textMeshProblue;
     private void OnEnable()
     {
         referee.OnScoreChange += DisplayScore;
@@ -20,8 +20,9 @@ public class UI_Score : MonoBehaviour
 
     private void DisplayScore(int redTeamScore, int blueTeamScore)
     {
-        textMeshPro.text = "SCORE\n" + redTeamScore + ":" + blueTeamScore;
-        Debug.Log("blue "+ redTeamScore + "red " + blueTeamScore);
+        textMeshProred.text = "SCORE\n" + redTeamScore;
+        textMeshProblue.text = "SCORE\n" + blueTeamScore;
+    
     }
 
 

@@ -11,12 +11,14 @@ public class StartingGameState : MonoBehaviour
     public MonoBehaviour gameState;
     public TextMeshProUGUI textMeshPro;
     public float countdownTime = 4.0f; 
-
+    private float initialCountdownTime;
+    public GameObject gameStates;
     private void OnEnable()
     {
         StartingGame.SetActive(true); 
+        gameStates.SetActive(false); 
         StartCoroutine(StartCountdown());
-
+        initialCountdownTime = countdownTime; 
     }
 
     private void Update()
@@ -26,8 +28,10 @@ public class StartingGameState : MonoBehaviour
 
     private void OnDisable()
     {
-        stateManager.ChangeState(gameState);
+
         StartingGame.SetActive(false);
+        countdownTime = initialCountdownTime;
+        Time.timeScale = 1;
     }
     
     

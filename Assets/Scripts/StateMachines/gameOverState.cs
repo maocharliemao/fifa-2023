@@ -10,9 +10,13 @@ public class gameOverState : MonoBehaviour
     public GameObject gameOverMenu;
     public MonoBehaviour gameState;
     public StateManager stateManager;
+    public GameObject gameStates;
+    public StartingGameState startingGame;
     private void OnEnable()
     {
         gameOverMenu.SetActive(true);
+        gameStates.SetActive(false);
+      
     }
     
     public void Update()
@@ -23,8 +27,11 @@ public class gameOverState : MonoBehaviour
 
     private void OnDisable()
     {
-        gameOverMenu.SetActive(false);
+ 
+        gameStates.SetActive(false);
+        startingGame.enabled = false;
     }
+    
 
     public void MouseClick()
     {

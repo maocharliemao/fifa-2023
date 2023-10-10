@@ -13,6 +13,9 @@ public class Referee : MonoBehaviour
     public Goal goal2;
     public Ball ball;
 
+    public StartingGameState startingGame;
+    public StateManager stateManager;
+    
     public delegate void ScoreChangeEvent(int redScore, int blueScore);
     public event ScoreChangeEvent OnScoreChange;
     
@@ -45,6 +48,7 @@ public class Referee : MonoBehaviour
         ResetBallPitch();
         GameOver();
         PlayerResetEvent();
+        StartCoroutine(ChangeStateAfterDelay(startingGame));
     }
 
     private void AddScoreToBlueTeam()
@@ -54,8 +58,17 @@ public class Referee : MonoBehaviour
         ResetBallPitch();
         GameOver();
         PlayerResetEvent();
+        StartCoroutine(ChangeStateAfterDelay(startingGame));
     }
 
+    private IEnumerator ChangeStateAfterDelay(MonoBehaviour newState)
+    {
+        yield return new WaitForSeconds(0.1f); 
+        stateManager.ChangeState(newState);
+    }
+    
+    
+    
     private void NotifyScoreChange()
     {
         OnScoreChange?.Invoke(redTeamScore, blueTeamScore);
