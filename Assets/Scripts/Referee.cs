@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class Referee : MonoBehaviour
 {
-    // ref getting paid overtime rates
-
     public int redTeamScore  = 0;
     public int blueTeamScore  = 0;
     
     public Goal goal;
     public Goal goal2;
-    public Ball ball;
-
-    public StartingGameState startingGame;
-    public StateManager stateManager;
+  
     
     public delegate void ScoreChangeEvent(int redScore, int blueScore);
     public event ScoreChangeEvent OnScoreChange;
@@ -48,7 +43,6 @@ public class Referee : MonoBehaviour
         ResetBallPitch();
         GameOver();
         PlayerResetEvent();
-        StartCoroutine(ChangeStateAfterDelay(startingGame));
     }
 
     private void AddScoreToBlueTeam()
@@ -58,36 +52,26 @@ public class Referee : MonoBehaviour
         ResetBallPitch();
         GameOver();
         PlayerResetEvent();
-        StartCoroutine(ChangeStateAfterDelay(startingGame));
     }
-
-    private IEnumerator ChangeStateAfterDelay(MonoBehaviour newState)
-    {
-        yield return new WaitForSeconds(0.1f); 
-        stateManager.ChangeState(newState);
-    }
-    
-    
     
     private void NotifyScoreChange()
     {
         OnScoreChange?.Invoke(redTeamScore, blueTeamScore);
     }
 
-    public void ResetBallPitch()
+    private void ResetBallPitch()
     {
         BallEvent?.Invoke();
     }
 
-    public void GameOver()
+    private void GameOver()
     {
         OnGameOver?.Invoke(redTeamScore, blueTeamScore);
     }
-    
-    public void PlayerResetEvent()
+
+    private void PlayerResetEvent()
     {
         OnPlayerReset?.Invoke();
-        //resets player when goal is scored
     }
     
     

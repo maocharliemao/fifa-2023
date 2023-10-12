@@ -10,29 +10,11 @@ public class Ball : MonoBehaviour
     private Vector3 initialPosition; 
     public Referee referee;
     
-    public void OnCollisionEnter(Collision other)
-    {
-        IScoreable scoreable = other.transform.GetComponent<IScoreable>();
-        if (scoreable != null)
-        {
-            scoreable.Score();
-        }
-    }
-    
-    public void Kick(Vector3 kickDirection, float kickForce)
-    {
-        Vector3 oppositeDirection = -kickDirection.normalized;
-        rb.velocity = oppositeDirection * kickForce;
-        Debug.Log("Ball is kicked");
-    }
-
-    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         initialPosition = transform.position;
     }
-
     
     private void OnEnable()
     {
@@ -51,6 +33,8 @@ public class Ball : MonoBehaviour
         ballRigidbody.velocity = Vector3.zero;
         ballRigidbody.angularVelocity = Vector3.zero;
     }
+
+
 }
 
 
