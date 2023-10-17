@@ -15,8 +15,6 @@ public class Reset : MonoBehaviour
         initialRotation = transform.rotation;
     }
     
-
-    
     
     private void OnEnable()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour, IScoreable
+public class Ball : MonoBehaviour
 {
 
     private Rigidbody rb;
@@ -35,10 +35,13 @@ public class Ball : MonoBehaviour, IScoreable
         ballRigidbody.angularVelocity = Vector3.zero;
     }
 
-
-    public void Score()
+    public void OnCollisionEnter(Collision other)
     {
-        Score();
+        IScoreable scoreable = other.transform.GetComponent<IScoreable>();
+        if (scoreable != null)
+        {
+            scoreable.Score();
+        }
     }
 }
 

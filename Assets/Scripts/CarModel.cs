@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarModel : MonoBehaviour, IKickable
+public class CarModel : MonoBehaviour
 {
 
     public float moveSpeed = 10f;
@@ -28,13 +28,6 @@ public class CarModel : MonoBehaviour, IKickable
     }
     
     
-    
-    public void Kick(Vector3 kickDirection, float kickForce)
-    {
-        Vector3 oppositeDirection = -kickDirection.normalized;
-        rb.velocity = oppositeDirection * kickForce;
-        Debug.Log("Ball is kicked");
-    }
     
     
 }
