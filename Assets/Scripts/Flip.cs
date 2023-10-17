@@ -45,7 +45,6 @@ public class Flip : MonoBehaviour
 
     private void FlipCar()
     {
-        
         rb.AddForce(Vector3.up * flipForce, ForceMode.Impulse);
     }
 }

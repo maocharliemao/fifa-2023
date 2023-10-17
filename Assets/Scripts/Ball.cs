@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class Ball : MonoBehaviour, IScoreable
 {
 
     private Rigidbody rb;
@@ -16,6 +16,7 @@ public class Ball : MonoBehaviour
         initialPosition = transform.position;
     }
     
+    //ball resets 
     private void OnEnable()
     {
         referee.BallEvent += BallToReset;
@@ -35,6 +36,10 @@ public class Ball : MonoBehaviour
     }
 
 
+    public void Score()
+    {
+        Score();
+    }
 }
 
 

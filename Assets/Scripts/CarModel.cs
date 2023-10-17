@@ -27,11 +27,14 @@ public class CarModel : MonoBehaviour, IKickable
         rb.MoveRotation(rb.rotation * rotation);
     }
     
+    
+    
     public void Kick(Vector3 kickDirection, float kickForce)
     {
         Vector3 oppositeDirection = -kickDirection.normalized;
         rb.velocity = oppositeDirection * kickForce;
         Debug.Log("Ball is kicked");
     }
+    
     
 }
