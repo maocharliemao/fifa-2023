@@ -1348,9 +1348,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 292158328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e64576a5df41394aa517cee51f96b81, type: 3}
+  m_Script: {fileID: 11500000, guid: 18f0fb54d1ca4f948acf11195825e69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 499538075}
 --- !u!4 &297988795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2551506858134190793, guid: 44638f4c10979e2469296aa724c63678, type: 3}
@@ -1950,8 +1951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redTeamScore: 0
   blueTeamScore: 0
-  goal: {fileID: 292158333}
-  goal2: {fileID: 1801574127}
+  ball: {fileID: 1184947890}
 --- !u!135 &499538076
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4078,7 +4078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df263f1457106d642a979eaf6637568f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  referee: {fileID: 499538075}
 --- !u!54 &1184947893
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5942,7 +5941,7 @@ GameObject:
   - component: {fileID: 1801574130}
   - component: {fileID: 1801574129}
   - component: {fileID: 1801574128}
-  - component: {fileID: 1801574127}
+  - component: {fileID: 1801574131}
   m_Layer: 0
   m_Name: P2Goal
   m_TagString: Untagged
@@ -5965,18 +5964,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1316975739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1801574127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801574125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e64576a5df41394aa517cee51f96b81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1801574128
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6048,6 +6035,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801574125}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1801574131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801574125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64576a5df41394aa517cee51f96b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 499538075}
 --- !u!1 &1812413473
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,70 +7,65 @@ public class Referee : MonoBehaviour
     public int redTeamScore  = 0;
     public int blueTeamScore  = 0;
     
-    public Goal goal;
-    public Goal goal2;
-  
+    public GameObject ball; 
     
     public delegate void ScoreChangeEvent(int redScore, int blueScore);
     public event ScoreChangeEvent OnScoreChange;
     
-    public delegate void ResetBall();
-    public event ResetBall BallEvent;
+
     
     public delegate void GameOverEvent(int redScore, int blueScore);
     public event GameOverEvent OnGameOver;
     
     public delegate void ResetToInitial();
     public event ResetToInitial OnPlayerReset;
-    
-    
-    private void OnEnable()
-    {
-        goal.ScoringEvent += AddScoreToRedTeam;
-        goal2.ScoringEvent += AddScoreToBlueTeam;
-    }
 
-    private void OnDisable()
-    {
-        goal.ScoringEvent -= AddScoreToRedTeam;
-        goal2.ScoringEvent -= AddScoreToBlueTeam;
-    }
 
-    private void AddScoreToRedTeam()
+    private void ResetBall()
+    {
+       
+        if (ball != null)
+        {
+            Debug.Log("reset ball");
+            ball.transform.position = Vector3.zero; 
+        }
+    }
+    
+
+    public void AddScoreToRedTeam()
     {
         redTeamScore++;
         NotifyScoreChange();
-        ResetBallPitch();
+        ResetBall();
         GameOver();
         PlayerResetEvent();
     }
 
-    private void AddScoreToBlueTeam()
+    public void AddScoreToBlueTeam()
     {
         blueTeamScore++;
         NotifyScoreChange();
-        ResetBallPitch();
+        ResetBall();
         GameOver();
         PlayerResetEvent();
     }
     
     private void NotifyScoreChange()
     {
+        Debug.Log("Notify");
         OnScoreChange?.Invoke(redTeamScore, blueTeamScore);
     }
 
-    private void ResetBallPitch()
-    {
-        BallEvent?.Invoke();
-    }
-
+    
     private void GameOver()
     {
+        Debug.Log("game over");
         OnGameOver?.Invoke(redTeamScore, blueTeamScore);
     }
 
     private void PlayerResetEvent()
     {
+        Debug.Log("reset");
         OnPlayerReset?.Invoke();
     }
     
