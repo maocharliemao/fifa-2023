@@ -7,8 +7,7 @@ public class GoalRed : MonoBehaviour, IScoreable
     [SerializeField]
     private Referee gameManager;
 
-
-
+    
     public void Score()
     {
         gameManager.AddScoreToRedTeam();

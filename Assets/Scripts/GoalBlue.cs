@@ -7,8 +7,7 @@ public class GoalBlue : MonoBehaviour, IScoreable
 {
     [SerializeField]
     private Referee gameManager;
-
-
+    
 
     public void Score()
     {
