@@ -32,6 +32,7 @@ public class GameState : StateBases
     private void OnDisable()
     {
         referee.OnScoreChange -= CheckForGameOver;
+        stateGame.SetActive(false);
     }
     
     

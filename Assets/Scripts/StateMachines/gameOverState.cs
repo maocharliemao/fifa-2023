@@ -29,6 +29,7 @@ public class gameOverState : StateBases
     {
  
         gameStates.SetActive(false);
+        gameOverMenu.SetActive(false);
         startingGame.enabled = false;
     }
     
