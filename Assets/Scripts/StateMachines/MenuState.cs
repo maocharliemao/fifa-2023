@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuState : MonoBehaviour
+public class MenuState : StateBases
 {
     public GameObject menu;
     public StateManager stateManager;
-    public MonoBehaviour gameState;
+    public StateBases gameState;
     private void OnEnable()
     {
        menu.SetActive(true);

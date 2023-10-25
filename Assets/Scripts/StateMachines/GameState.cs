@@ -4,11 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using TMPro;
 
-public class GameState : MonoBehaviour
+public class GameState : StateBases
 { 
     public GameObject stateGame;
    public StateManager stateManager;
-   public MonoBehaviour gameState;
+   public StateBases gameState;
    public Referee referee;
    public TextMeshProUGUI textMeshPro;
    public gameOverState gameOver;

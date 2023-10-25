@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class StartingGameState : MonoBehaviour
+public class StartingGameState : StateBases
 {
     
     public GameObject StartingGame;
     public StateManager stateManager;
-    public MonoBehaviour gameState;
+    public StateBases gameState;
     public TextMeshProUGUI textMeshPro;
     public float countdownTime = 4.0f; 
-    private float initialCountdownTime;
+    private float _initialCountdownTime;
     public GameObject gameStates;
     private void OnEnable()
     {
         StartingGame.SetActive(true); 
         gameStates.SetActive(false); 
         StartCoroutine(StartCountdown());
-        initialCountdownTime = countdownTime; 
+        _initialCountdownTime = countdownTime; 
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class StartingGameState : MonoBehaviour
     {
 
         StartingGame.SetActive(false);
-        countdownTime = initialCountdownTime;
+        countdownTime = _initialCountdownTime;
         Time.timeScale = 1;
     }
     

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseState : MonoBehaviour
+public class PauseState : StateBases
 {
     public GameObject pauseMenu;
-    public MonoBehaviour gameState;
+    public StateBases gameState;
     public StateManager stateManager;
     private void OnEnable()
     {

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateManager : MonoBehaviour
+public class StateManager : StateBases
 {
-    public MonoBehaviour startingState;
-    public MonoBehaviour currentState;
+    public StateBases startingState;
+    public StateBases currentState;
     
 
     private void Start()
@@ -13,7 +13,7 @@ public class StateManager : MonoBehaviour
         ChangeState(startingState);
     }
 
-    public void ChangeState(MonoBehaviour newState)
+    public void ChangeState(StateBases newState)
     {
 
         if (newState == currentState)

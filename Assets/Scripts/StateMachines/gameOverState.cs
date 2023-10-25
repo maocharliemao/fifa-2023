@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class gameOverState : MonoBehaviour
+public class gameOverState : StateBases
 {
 
     public GameObject gameOverMenu;
-    public MonoBehaviour gameState;
+    public StateBases gameState;
     public StateManager stateManager;
     public GameObject gameStates;
     public StartingGameState startingGame;
