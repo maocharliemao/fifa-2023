@@ -5,10 +5,10 @@ using UnityEngine;
 public class ResetPlayer : MonoBehaviour
 {
     
-    public Vector3 initialPosition;
-    public Quaternion initialRotation;
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
     public Referee referee;
-    
+    public Rigidbody rb;
     private void Start()
     {
         initialPosition = transform.position;
@@ -32,10 +32,8 @@ public class ResetPlayer : MonoBehaviour
 
         transform.position = initialPosition;
         transform.rotation = initialRotation;
+        rb.velocity = Vector3.zero;
 
     }
-    
-    
-    
     
 }

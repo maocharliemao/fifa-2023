@@ -10,7 +10,7 @@ public class VehicleModel : MonoBehaviour
     public Vector3 forwardDirection;
     public float speed;
     public Vector3 direction;
-
+    public float brakeForce = 2500.0f;
     public Vector3 forwardForce;
     public float turnSpeed;
 
@@ -33,14 +33,17 @@ public class VehicleModel : MonoBehaviour
 
     public void ApplyReverse()
     {
+        {rb.AddRelativeForce(0,0,-2500f);}
         if(forwardForce.z > 25f)
         {forwardForce.z -= 1 * Time.deltaTime;}
     }
 
     public void ApplyBrake()
     {
-        forwardForce.z = 0;
+        Vector3 brakeVector = -rb.velocity.normalized * brakeForce;
+        rb.AddForce(brakeVector);
     }
+   
 
     private void FixedUpdate()
     {
