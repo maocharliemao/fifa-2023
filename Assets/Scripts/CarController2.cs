@@ -40,6 +40,5 @@ public class CarController2 : MonoBehaviour
             carModel.verticalInput = 0f; 
         }
     }
-
-
+    
 }

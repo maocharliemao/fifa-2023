@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3435753158652887738
+--- !u!1 &5595390522518963255
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3112771915300510744}
-  - component: {fileID: 5244087712081026317}
-  - component: {fileID: 6653970482008247592}
-  - component: {fileID: 6007014934291199954}
-  - component: {fileID: 8639403263292154023}
+  - component: {fileID: 1479989789012948085}
+  - component: {fileID: 6241942103716562589}
+  - component: {fileID: 8327382563897212297}
+  - component: {fileID: 7332489708484624065}
+  - component: {fileID: 2087787728681355843}
   m_Layer: 0
-  m_Name: Goal
+  m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3112771915300510744
+--- !u!4 &1479989789012948085
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435753158652887738}
+  m_GameObject: {fileID: 5595390522518963255}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 150.00789, y: 120.485, z: -58.52703}
-  m_LocalScale: {x: 2, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.33899975, y: -0.636, z: 0.45329157}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.094043896}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5244087712081026317
+--- !u!33 &6241942103716562589
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435753158652887738}
+  m_GameObject: {fileID: 5595390522518963255}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6653970482008247592
+--- !u!23 &8327382563897212297
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435753158652887738}
+  m_GameObject: {fileID: 5595390522518963255}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 19047697743a9b5439ebce04a6f35cb7, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6007014934291199954
+--- !u!65 &7332489708484624065
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435753158652887738}
+  m_GameObject: {fileID: 5595390522518963255}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -100,27 +100,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8639403263292154023
+--- !u!114 &2087787728681355843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435753158652887738}
+  m_GameObject: {fileID: 5595390522518963255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b2aa0b51f8fa6418e772be9cbe9780, type: 3}
+  m_Script: {fileID: 11500000, guid: a813ae425013b5847af329ebcf4c9250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managerGame: {fileID: 0}
-  team: 1
-  score: 0
-  textMeshPro: {fileID: 0}
-  goalScript: {fileID: 0}
-  Ball: {fileID: 0}
+  lift: 5
+  tyreRadius: 2
+  rb: {fileID: 0}

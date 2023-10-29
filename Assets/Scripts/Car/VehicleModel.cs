@@ -1,0 +1,67 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class VehicleModel : MonoBehaviour
+{
+    public Vector3 worldVelocity;
+    public Vector3 localVelocity;
+    public Vector3 localDirection;
+    public Vector3 forwardDirection;
+    public float speed;
+    public Vector3 direction;
+
+    public Vector3 forwardForce;
+    public float turnSpeed;
+
+    public Rigidbody rb;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    public void ApplyAcceleration()
+    {
+        {rb.AddRelativeForce(0,0,5000f);}
+
+             
+        if(forwardForce.z < 25f)
+        {forwardForce.z += 1 * Time.deltaTime;}
+    }
+
+    public void ApplyReverse()
+    {
+        if(forwardForce.z > 25f)
+        {forwardForce.z -= 1 * Time.deltaTime;}
+    }
+
+    public void ApplyBrake()
+    {
+        forwardForce.z = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        rb.AddRelativeForce(-localVelocity.x * 3000, 0, 0 );
+        
+        transform.Rotate(0, turnSpeed * 3f,0);
+    }
+
+    private void Update()
+    {
+        worldVelocity = rb.velocity;
+        forwardDirection = transform.forward;
+        localVelocity = transform.InverseTransformVector(worldVelocity);
+        localDirection = transform.InverseTransformDirection(worldVelocity);
+        speed = worldVelocity.magnitude;
+        direction = worldVelocity.normalized;
+
+
+        turnSpeed = Input.GetAxisRaw("Horizontal");
+    }
+    
+
+    
+}
