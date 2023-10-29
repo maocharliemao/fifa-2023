@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VehicleController : MonoBehaviour
+public class VehicleController2 : MonoBehaviour
 {
     public KeyCode Accelerate;
     public KeyCode Reverse;

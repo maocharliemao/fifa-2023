@@ -48,20 +48,11 @@ public class VehicleModel : MonoBehaviour
         
         transform.Rotate(0, turnSpeed * 3f,0);
     }
-
-    private void Update()
-    {
-        worldVelocity = rb.velocity;
-        forwardDirection = transform.forward;
-        localVelocity = transform.InverseTransformVector(worldVelocity);
-        localDirection = transform.InverseTransformDirection(worldVelocity);
-        speed = worldVelocity.magnitude;
-        direction = worldVelocity.normalized;
-
-
-        turnSpeed = Input.GetAxisRaw("Horizontal");
-    }
     
-
+    
+    public void UpdateTurnSpeed(float newTurnSpeed)
+    {
+        turnSpeed = newTurnSpeed;
+    }
     
 }
