@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateManager : StateBases
+public class StateManager : MonoBehaviour
+    
 {
     public StateBases startingState;
     public StateBases currentState;
