@@ -8,7 +8,7 @@ public class Referee : MonoBehaviour
     public int blueTeamScore  = 0;
     
     public GameObject ball; 
-    
+    public Rigidbody rb;
     public delegate void ScoreChangeEvent(int redScore, int blueScore);
     public event ScoreChangeEvent OnScoreChange;
     
@@ -23,11 +23,17 @@ public class Referee : MonoBehaviour
 
     private void ResetBall()
     {
-       
         if (ball != null)
         {
-            Debug.Log("reset ball");
-            ball.transform.position = Vector3.zero; 
+            Debug.Log("Resetting the ball");
+            ball.transform.position = Vector3.zero;
+            
+            Rigidbody rb = ball.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
         }
     }
     
