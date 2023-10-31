@@ -6,9 +6,10 @@ public class VehicleController : MonoBehaviour
 {
     public KeyCode Accelerate;
     public KeyCode Reverse;
-    public KeyCode Brake;
+    public KeyCode flip;
 
     public VehicleModel carModel;
+    public CarFlip carFlip;
 
     public float turnSpeed = 3f;
     public KeyCode TurnLeftKey;
@@ -26,10 +27,9 @@ public class VehicleController : MonoBehaviour
             Debug.Log("reverse ");
             carModel.ApplyReverse();
         }
-        if (Input.GetKey(Brake))
+        if (Input.GetKey(flip))
         {
-            Debug.Log("Break ");
-            carModel.ApplyBrake();
+            carFlip.Flip();
         }
         
 

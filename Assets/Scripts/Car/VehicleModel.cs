@@ -58,4 +58,17 @@ public class VehicleModel : MonoBehaviour
         turnSpeed = newTurnSpeed;
     }
     
+    void Update()
+    {
+
+        
+        worldVelocity = rb.velocity;
+        forwardDirection = transform.forward;
+        localVelocity = transform.InverseTransformVector(worldVelocity);
+        localDirection = transform.InverseTransformDirection(worldVelocity);
+        speed = worldVelocity.magnitude;
+        direction = worldVelocity.normalized;
+
+    }
+    
 }

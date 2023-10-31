@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7495443279060062592, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -241,6 +241,7 @@ MonoBehaviour:
   forwardDirection: {x: 0, y: 0, z: 0}
   speed: 0
   direction: {x: 0, y: 0, z: 0}
+  brakeForce: 2500
   forwardForce: {x: 0, y: 0, z: 0}
   turnSpeed: 0
   rb: {fileID: 1816658159591829857}
@@ -256,9 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24c5e679c5980344a935052bfa19787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialPosition: {x: 0, y: 0, z: 0}
-  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   referee: {fileID: 0}
+  rb: {fileID: 1816658159591829857}
 --- !u!114 &4809480281044734427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   Reverse: 274
   Brake: 256
   carModel: {fileID: 5746348253394680904}
-  turnSpeed: 0
+  turnSpeed: 0.5
   TurnLeftKey: 276
   TurnRightKey: 275
 --- !u!1 &6737813385592784917 stripped
