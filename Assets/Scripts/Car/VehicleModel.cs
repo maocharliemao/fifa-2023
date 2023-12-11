@@ -60,8 +60,6 @@ public class VehicleModel : MonoBehaviour
     
     void Update()
     {
-
-        
         worldVelocity = rb.velocity;
         forwardDirection = transform.forward;
         localVelocity = transform.InverseTransformVector(worldVelocity);
