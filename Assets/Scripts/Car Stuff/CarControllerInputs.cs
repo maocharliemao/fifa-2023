@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Charlie;
 using UnityEngine;
 
-public class CharliesTaxi : MonoBehaviour
+public class CarControllerInputs : MonoBehaviour
 {
     // public KeyCode Accelerate;
     // public KeyCode Reverse;

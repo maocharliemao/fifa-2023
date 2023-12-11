@@ -17,7 +17,7 @@ public class Referee : MonoBehaviour
     public PlayerInputManager PlayerInputManager;
     public GameObject cameraPrefab;
     public Transform[] spawnPoints;
-    public List<CharliesCar> players;
+    public List<Charlie.CarModel> players;
     
     public delegate void ScoreChangeEvent(int redScore, int blueScore);
 
@@ -50,7 +50,7 @@ public class Referee : MonoBehaviour
             aObj.transform.position = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
         }
 
-        players.Add(aObj.gameObject.GetComponent<CharliesCar>());
+        players.Add(aObj.gameObject.GetComponent<Charlie.CarModel>());
     }
     
     

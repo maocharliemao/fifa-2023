@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 namespace Charlie
 {
     [SelectionBase]
-    public class CharliesCar : MonoBehaviour
+    public class CarModel : MonoBehaviour
     {
         public Vector3 worldVelocity;
         public Vector3 localVelocity;
@@ -23,27 +23,18 @@ namespace Charlie
         public float turning;
 
         public bool canAccelerate;
-        public bool CanBrake;
-
-        // Start is called before the first frame update
-
+        public bool canBrake;
 
         private void FixedUpdate()
         {
             rb.AddRelativeForce(-localVelocity.x * 3000, 0, 0);
 
-            // transform.Rotate(0, turnSpeed * 3f, 0);
-
             TurnFrontLeftWeels.transform.localRotation = Quaternion.Euler(0, turnSpeed * turning, 0);
             TurnFrontRightWeels.transform.localRotation = Quaternion.Euler(0, turnSpeed * turning, 0);
 
-
             if (canAccelerate)
             {
-                {
-                    rb.AddRelativeForce(0, 0, 10000f);
-                }
-
+                rb.AddRelativeForce(0, 0, 10000f);
 
                 if (forwardForce.z < 25f)
                 {
@@ -51,11 +42,10 @@ namespace Charlie
                 }
             }
 
-            if (CanBrake)
+            if (canBrake)
             {
-                {
-                    rb.AddRelativeForce(0, 0, -7500f);
-                }
+                rb.AddRelativeForce(0, 0, -7500f);
+
                 if (forwardForce.z > 25f)
                 {
                     forwardForce.z -= 1 * Time.deltaTime;
@@ -70,20 +60,19 @@ namespace Charlie
             direction = worldVelocity.normalized;
         }
 
-
         public void Steer(float steerAngle)
         {
             turning = steerAngle;
         }
 
-        public void Move(bool boolean)
+        public void Move(bool accelerate)
         {
-            canAccelerate = boolean;
+            canAccelerate = accelerate;
         }
 
-        public void Break(bool boolean)
+        public void Break(bool brake)
         {
-            CanBrake = boolean;
+            canBrake = brake;
         }
     }
 }

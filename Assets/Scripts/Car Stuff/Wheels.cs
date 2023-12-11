@@ -55,7 +55,7 @@ namespace Charlie
         
         private void ApplyForwardForce()
         {
-            var localVelocity = transform.InverseTransformDirection(car.GetComponent<CharliesCar>().localVelocity);
+            var localVelocity = transform.InverseTransformDirection(car.GetComponent<CarModel>().localVelocity);
             vehicleRigidbody.AddForceAtPosition(transform.forward * localVelocity.x, transform.position);
         }
         
