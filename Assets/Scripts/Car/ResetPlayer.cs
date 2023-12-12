@@ -7,10 +7,13 @@ public class ResetPlayer : MonoBehaviour
     
     private Vector3 initialPosition;
     private Quaternion initialRotation;
-    public Referee referee;
-    public Rigidbody rb;
+    private Referee referee;
+    private Rigidbody rb;
     private void Start()
     {
+
+        referee.GetComponent<Referee>();
+        rb.GetComponent<Rigidbody>();
         initialPosition = transform.position;
         initialRotation = transform.rotation;
     }
