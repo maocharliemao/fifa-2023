@@ -25,7 +25,7 @@ public class Goalie : MonoBehaviour
             float distanceToBall = Vector3.Distance(transform.position, ball.position);
             if (distanceToBall <= detectionRange)
             {
-                Vector3 targetPosition = new Vector3(transform.position.x, Mathf.Clamp(ball.position.y, MinMoveDistance, MaxMoveDistance), transform.position.z);
+                Vector3 targetPosition = new Vector3(Mathf.Clamp(ball.position.x, MinMoveDistance, MaxMoveDistance), transform.position.y, transform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             }
 
