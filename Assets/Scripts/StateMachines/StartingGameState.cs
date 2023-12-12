@@ -13,8 +13,8 @@ public class StartingGameState : StateBases
     public float countdownTime = 4.0f; 
     private float _initialCountdownTime;
     public GameObject gameStates;
-    public GameObject Car1;
-    public GameObject Car2;
+    // public GameObject Car1;
+    // public GameObject Car2;
     private void OnEnable()
     {
         StartingGame.SetActive(true); 
@@ -22,8 +22,8 @@ public class StartingGameState : StateBases
         StartCoroutine(StartCountdown());
         _initialCountdownTime = countdownTime; 
         
-        Car1.SetActive(false); // Deactivate Car1
-        Car2.SetActive(false); // Deactivate Car2
+        // Car1.SetActive(false); // Deactivate Car1
+        // Car2.SetActive(false); // Deactivate Car2
     }
 
     private void Update()
@@ -37,8 +37,8 @@ public class StartingGameState : StateBases
         StartingGame.SetActive(false);
         countdownTime = _initialCountdownTime;
         Time.timeScale = 1;
-        Car1.SetActive(true); // Activate Car1
-        Car2.SetActive(true); // Activate Car2
+        // Car1.SetActive(true); // Activate Car1
+        // Car2.SetActive(true); // Activate Car2
         
     }
     

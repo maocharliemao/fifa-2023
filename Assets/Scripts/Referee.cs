@@ -18,7 +18,7 @@ public class Referee : MonoBehaviour
     public GameObject cameraPrefab;
     public Transform[] spawnPoints;
     public List<CarModel> players;
-    
+    private int currentPlayerIndex = 0;
     public delegate void ScoreChangeEvent(int redScore, int blueScore);
 
     public event ScoreChangeEvent OnScoreChange;
@@ -41,19 +41,24 @@ public class Referee : MonoBehaviour
     private void PlayerInputManagerOnonPlayerJoined(PlayerInput aObj)
     {
         GameObject newCameraGo = Instantiate(cameraPrefab);
-
         aObj.camera = newCameraGo.GetComponent<Camera>();
         newCameraGo.GetComponent<CameraTracker>().target = aObj.transform;
 
-        if (spawnPoints.Length > 0)
+ 
+        if (spawnPoints.Length >= 2)
         {
-            aObj.transform.position = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+            aObj.transform.position = spawnPoints[currentPlayerIndex].position;
+            currentPlayerIndex = (currentPlayerIndex + 1) % spawnPoints.Length;
         }
+        else if (spawnPoints.Length == 1)
+        {
+
+            aObj.transform.position = spawnPoints[0].position;
+        }
+
 
         players.Add(aObj.gameObject.GetComponent<CarModel>());
     }
-    
-    
     
 
     private void ResetBall()
