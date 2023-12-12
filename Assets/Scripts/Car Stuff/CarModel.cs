@@ -15,7 +15,7 @@ public class CarModel : MonoBehaviour
     public Vector3 direction;
     public float brakeForce = 2500.0f;
     public Vector3 forwardForce;
-    public float turnSpeed = 0.8f;
+    public float turnSpeed = 50f;
     public GameObject TurnFrontLeftWeels;
     public GameObject TurnFrontRightWeels;
     public Rigidbody rb;
