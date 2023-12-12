@@ -2,34 +2,6 @@
     "name": "Action Map",
     "maps": [
         {
-            "name": "InMenu",
-            "id": "7913518d-2a6e-40c8-bae4-07fbf6e65222",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "fc23e436-c9d2-4eb3-9e94-9946f8248615",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "c6c5a0e4-fedd-4198-80d3-6c677988506a",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "InGame",
             "id": "9573f123-ba9c-4ff1-ade3-a417e81450c6",
             "actions": [
@@ -68,7 +40,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad",
+                    "groups": "GamePad;PS",
                     "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -79,7 +51,18 @@
                     "path": "<DualShockGamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS",
+                    "groups": "GamePad;PS",
+                    "action": "Acceleration",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de9c7981-5cd0-4c0e-8ac1-3299c16ed9c8",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -90,7 +73,7 @@
                     "path": "<DualShockGamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS",
+                    "groups": "GamePad;PS",
                     "action": "Brake",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -101,7 +84,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad",
+                    "groups": "GamePad;PS",
                     "action": "Brake",
                     "isComposite": false,
                     "isPartOfComposite": false
