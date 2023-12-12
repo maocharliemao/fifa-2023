@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
-  moveSpeed: 1
-  kickForce: 100
+  moveSpeed: 1.5
+  kickForce: 50
   detectionRange: 50
   MinMoveDistance: -10
   MaxMoveDistance: 10
