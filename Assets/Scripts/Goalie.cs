@@ -8,9 +8,9 @@ public class Goalie : MonoBehaviour
     public float moveSpeed = 5f;
     public float kickForce = 10f;
     public float detectionRange = 2f;
-    public float zMin = -10f;
-    public float zMax = 10f;
-    public Rigidbody rb;
+    public float MinMoveDistance = -10f;
+    public float MaxMoveDistance = 10f;
+
 
 
     void Update()
@@ -22,14 +22,15 @@ public class Goalie : MonoBehaviour
     {
         if (ball != null)
         {
-            Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(ball.position.z, zMin, zMax));
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            float distanceToBall = Vector3.Distance(transform.position, ball.position);
+            if (distanceToBall <= detectionRange)
+            {
+                Vector3 targetPosition = new Vector3(transform.position.x, Mathf.Clamp(ball.position.y, MinMoveDistance, MaxMoveDistance), transform.position.z);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            }
+
         }
     }
-
-
-    
-
 
 
     private void OnCollisionEnter(Collision collision)
@@ -44,5 +45,4 @@ public class Goalie : MonoBehaviour
             collision.rigidbody.AddForce(repelDirection * kickForce, ForceMode.Impulse);
         }
     }
-
 }
