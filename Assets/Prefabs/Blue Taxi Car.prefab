@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5656993070130025808}
   - component: {fileID: 6761718776221422258}
   - component: {fileID: 8126051664291582687}
+  - component: {fileID: 5894235873292662822}
   m_Layer: 0
   m_Name: Blue Taxi Car
   m_TagString: Untagged
@@ -41,6 +42,7 @@ Transform:
   - {fileID: 4391330791708405599}
   - {fileID: 1120396480204516579}
   - {fileID: 8642234592145491276}
+  - {fileID: 2290315722579473863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8316091515776077221
@@ -111,7 +113,7 @@ MonoBehaviour:
   direction: {x: -0.12261299, y: -0.1765128, z: 0.9766316}
   brakeForce: 2500
   forwardForce: {x: 0, y: 0, z: 24.980719}
-  turnSpeed: 0.8
+  turnSpeed: 50
   TurnFrontLeftWeels: {fileID: 5151461556249434845}
   TurnFrontRightWeels: {fileID: 8335906783784977957}
   rb: {fileID: 8087528446877062562}
@@ -130,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 14046a7ca25f41b47b2b1a0bc73e0d1b, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 7786c2a91e31b734082338b6c5a65a2d, type: 3}
   m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -162,6 +164,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carModel: {fileID: 5656993070130025808}
   playerInput: {fileID: 6761718776221422258}
+--- !u!114 &5894235873292662822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132946316049733034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24c5e679c5980344a935052bfa19787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referee: {fileID: 0}
+  rb: {fileID: 8087528446877062562}
 --- !u!1 &838987889827902468
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +641,7 @@ MonoBehaviour:
   tireFriction: 900
   car: {fileID: 132946316049733034}
   tireRadius: 0.25
-  upForce: 9500
+  upForce: 10000
   wheelSpeed: 0
   wheel: {fileID: 1795682176256637120}
   springForce:
@@ -763,7 +779,7 @@ MonoBehaviour:
   tireFriction: 900
   car: {fileID: 132946316049733034}
   tireRadius: 0.25
-  upForce: 9500
+  upForce: 10000
   wheelSpeed: 0
   wheel: {fileID: 8025195078637180919}
   springForce:
@@ -985,7 +1001,7 @@ MonoBehaviour:
   tireFriction: 900
   car: {fileID: 132946316049733034}
   tireRadius: 0.25
-  upForce: 9500
+  upForce: 10000
   wheelSpeed: 0
   wheel: {fileID: 1929125716233199605}
   springForce:
@@ -1332,7 +1348,7 @@ MonoBehaviour:
   tireFriction: 900
   car: {fileID: 132946316049733034}
   tireRadius: 0.25
-  upForce: 9500
+  upForce: 10000
   wheelSpeed: 0
   wheel: {fileID: 2634817688053633211}
   springForce:
@@ -1683,4 +1699,74 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
   m_PrefabInstance: {fileID: 976317087518149225}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7325992815116319458
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3734372619210875997}
+    m_Modifications:
+    - target: {fileID: 1559228245575925556, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607411123740329979, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258781013543222943, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_Name
+      value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9848078
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.17364816
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+--- !u!4 &2290315722579473863 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8819158187765993253, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
+  m_PrefabInstance: {fileID: 7325992815116319458}
   m_PrefabAsset: {fileID: 0}
