@@ -7,7 +7,8 @@ public class CountDownTimer : MonoBehaviour
 {
     public TextMeshProUGUI textMeshPro;
     public float countdownTime = 90.0f; 
-
+    public StateManager stateManager;
+    public gameOverState gameOver;
     private void Start()
     {
         StartCoroutine(StartCountdown());
@@ -22,6 +23,7 @@ public class CountDownTimer : MonoBehaviour
             yield return null; 
         }
         textMeshPro.text  = "Time's up!";
+        stateManager.ChangeState(gameOver);
     }
 }
 
