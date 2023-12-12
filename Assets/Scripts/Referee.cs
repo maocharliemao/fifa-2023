@@ -12,13 +12,15 @@ public class Referee : MonoBehaviour
     public GameObject ball;
 
     
-    public GameObject TaxiPrefab;
-    public GameObject DororianPrefab;
+
+
     public PlayerInputManager PlayerInputManager;
     public GameObject cameraPrefab;
     public Transform[] spawnPoints;
     public List<CarModel> players;
     private int currentPlayerIndex = 0;
+    public float player1Rotation = 0f;
+    public float player2Rotation = 180f;
     public delegate void ScoreChangeEvent(int redScore, int blueScore);
 
     public event ScoreChangeEvent OnScoreChange;
@@ -40,20 +42,28 @@ public class Referee : MonoBehaviour
 
     private void PlayerInputManagerOnonPlayerJoined(PlayerInput aObj)
     {
+        
         GameObject newCameraGo = Instantiate(cameraPrefab);
+        newCameraGo.transform.parent = aObj.transform;
         aObj.camera = newCameraGo.GetComponent<Camera>();
         newCameraGo.GetComponent<CameraTracker>().target = aObj.transform;
-
- 
+        
+        
         if (spawnPoints.Length >= 2)
         {
+
             aObj.transform.position = spawnPoints[currentPlayerIndex].position;
+
+
+            aObj.transform.rotation = Quaternion.Euler(0f, currentPlayerIndex == 0 ? player1Rotation : player2Rotation, 0f);
+
             currentPlayerIndex = (currentPlayerIndex + 1) % spawnPoints.Length;
         }
         else if (spawnPoints.Length == 1)
         {
 
             aObj.transform.position = spawnPoints[0].position;
+            aObj.transform.rotation = Quaternion.Euler(0f, player1Rotation, 0f);
         }
 
 

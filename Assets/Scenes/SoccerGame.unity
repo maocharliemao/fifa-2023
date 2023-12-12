@@ -1671,16 +1671,14 @@ MonoBehaviour:
   redTeamScore: 0
   blueTeamScore: 0
   ball: {fileID: 1184947890}
-  TaxiPrefab: {fileID: 0}
-  DororianPrefab: {fileID: 0}
   PlayerInputManager: {fileID: 682639871}
   cameraPrefab: {fileID: 5258781013543222943, guid: 2d0209978b0589842a8153e56ec93053, type: 3}
   spawnPoints:
   - {fileID: 124179738}
   - {fileID: 722913492}
-  players:
-  - {fileID: 7060412833719601202, guid: 39eb159ef86d6864e81dc27dba367bdf, type: 3}
-  - {fileID: 5656993070130025808, guid: 1365d9dc44ff2824baf91426aa1706cf, type: 3}
+  players: []
+  player1Rotation: 0
+  player2Rotation: 180
 --- !u!135 &499538076
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2370,7 +2368,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PlayerPrefab: {fileID: 132946316049733034, guid: 1365d9dc44ff2824baf91426aa1706cf, type: 3}
-  m_SplitScreen: 0
+  m_SplitScreen: 1
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
   m_SplitScreenRect:
